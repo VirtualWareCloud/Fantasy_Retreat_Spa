@@ -1,257 +1,163 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Fantasy Retreat Spa — Exotic Beach Massage Therapy</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Relax under Grecian skies as our therapists restore balance by the Aegean. Book your beach massage escape." />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fantasy Retreat Spa — Exotic Beach Massage Therapy</title>
+<meta name="description" content="Relax under Grecian skies as our therapists restore balance by the Aegean. Exotic beach massage therapy, couples packages, and serene rituals." />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --aegean:#0A68B8;
+  --aegean-deep:#084E8A;
+  --coral:#FF7E6D;
+  --white:#fff;
+  --border:rgba(255,255,255,.25);
+}
+*{box-sizing:border-box} html,body{margin:0;padding:0}
+body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#f8faff;color:#fff}
 
-  <style>
-    :root{
-      --aegean:#0A68B8;
-      --aegean-dark:#084E8A;
-      --coral:#FF7E6D;
-      --ink:#0B2A44;
-      --glass:rgba(255,255,255,.64);
-      --white:#fff;
-      --shadow:0 20px 60px rgba(0,0,0,.28);
-      --soft-shadow:0 10px 30px rgba(0,0,0,.15);
-    }
+/* ===== HEADER ===== */
+.frs-header{
+  position:sticky;top:0;z-index:80;
+  display:grid;grid-template-columns:56px 1fr 56px;align-items:center;
+  gap:12px;padding:10px 14px;
+  background:var(--aegean);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 2px 12px rgba(0,0,0,.2);
+}
 
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{
-      font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--ink);
-      background:#F7FAFF;
-    }
+/* Left logo */
+.frs-logo-btn{
+  width:46px;height:46px;display:grid;place-items:center;
+  border:1px solid var(--border);border-radius:14px;
+  background:linear-gradient(180deg,rgba(255,255,255,.15),rgba(255,255,255,.05));
+  cursor:pointer;transition:transform .2s ease;
+}
+.frs-logo-btn:hover{transform:translateY(-1px)}
+.frs-logo{width:28px;height:28px;display:block;filter:drop-shadow(0 4px 8px rgba(255,255,255,.4))}
+@keyframes frsFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.frs-logo{animation:frsFloat 3.6s ease-in-out infinite}
 
-    /* ===== Header (sticky) ===== */
-    .hdr{
-      position:sticky; top:0; z-index:50;
-      display:grid; grid-template-columns:56px 1fr 56px; align-items:center; gap:12px;
-      padding:10px 14px;
-      background:var(--glass);
-      backdrop-filter: blur(12px);
-      border-bottom:1px solid rgba(10,104,184,.12);
-    }
+/* Middle title */
+.frs-title{text-align:center;color:var(--white)}
+.frs-title h1{margin:0;font-family:"Playfair Display",serif;font-size:clamp(18px,3.6vw,28px);letter-spacing:.3px;color:var(--white)}
 
-    /* Left: animated logo icon that opens nav */
-    .logo-btn{
-      width:46px;height:46px;display:grid;place-items:center;cursor:pointer;
-      border:1px solid rgba(10,104,184,.15); border-radius:14px;
-      background:linear-gradient(180deg,#fff,#F2F6FB);
-      box-shadow:var(--soft-shadow);
-      transition:transform .2s ease;
-    }
-    .logo-btn:hover{ transform:translateY(-1px); }
-    .logo-svg{ width:28px;height:28px; display:block;
-      filter:drop-shadow(0 4px 10px rgba(10,104,184,.25));
-      animation:float 3.6s ease-in-out infinite, glow 2.8s ease-in-out infinite;
-    }
-    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
-    @keyframes glow{0%,100%{filter:drop-shadow(0 4px 10px rgba(10,104,184,.25))}50%{filter:drop-shadow(0 6px 16px rgba(10,104,184,.4))}}
+/* Right share button */
+.frs-share{
+  position:relative;width:46px;height:46px;display:grid;place-items:center;
+  border:1px solid var(--border);border-radius:14px;
+  background:linear-gradient(180deg,rgba(255,255,255,.15),rgba(255,255,255,.05));
+  cursor:pointer;transition:transform .2s ease;
+}
+.frs-share:hover{transform:translateY(-1px) rotate(-2deg)}
+.frs-telegram{width:22px;height:22px;fill:var(--white);animation:frsPlane 2.8s ease-in-out infinite}
+@keyframes frsPlane{0%{transform:translate(0,0)}50%{transform:translate(1px,-2px)}100%{transform:translate(0,0)}}
 
-    /* Middle: title */
-    .title{ text-align:center }
-    .title h1{
-      margin:0; font-family:"Playfair Display",serif; color:var(--aegean);
-      font-size: clamp(18px, 3.6vw, 28px); letter-spacing:.3px;
-    }
+/* NAV */
+.frs-nav{
+  position:fixed;top:0;left:-320px;height:100dvh;width:280px;
+  background:rgba(10,104,184,.97);backdrop-filter:blur(10px);
+  border-right:1px solid var(--border);
+  box-shadow:0 12px 40px rgba(0,0,0,.25);
+  padding:14px;display:flex;flex-direction:column;gap:8px;transition:left .28s ease;z-index:90;
+}
+.frs-nav a{display:block;padding:12px 10px;border-radius:12px;text-decoration:none;color:var(--white);font-weight:600}
+.frs-nav a:hover{background:rgba(255,255,255,.15)}
+.frs-book{background:var(--coral);color:#fff!important}
+.frs-close{align-self:flex-end;width:36px;height:36px;border-radius:10px;border:1px solid var(--border);background:rgba(255,255,255,.1);cursor:pointer;font-size:20px;color:var(--white)}
+.frs-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:85}
+.frs-nav.is-open{left:0}.frs-backdrop.is-open{opacity:1;pointer-events:auto}
 
-    /* Right: Telegram-style share */
-    .share{
-      position:relative; width:46px;height:46px;display:grid;place-items:center;cursor:pointer;
-      border:1px solid rgba(10,104,184,.15); border-radius:14px; overflow:hidden;
-      background:linear-gradient(180deg,#fff,#F2F6FB);
-      box-shadow:var(--soft-shadow);
-      transition:transform .2s ease;
-    }
-    .share:hover{ transform:translateY(-1px) rotate(-2deg); }
-    .tg{ width:22px;height:22px; fill:var(--aegean); animation:plane 2.8s ease-in-out infinite }
-    @keyframes plane{0%{transform:translate(0,0) rotate(0)}50%{transform:translate(1px,-2px) rotate(3deg)}100%{transform:translate(0,0) rotate(0)}}
-    .ping{ position:absolute;inset:0;border-radius:14px;pointer-events:none;
-      background:radial-gradient(60% 60% at 50% 50%, rgba(10,104,184,.22), transparent 60%);
-      animation:ping 1.8s ease-out infinite;
-    }
-    @keyframes ping{0%{opacity:.55;transform:scale(.9)}100%{opacity:0;transform:scale(1.2)}}
+/* ===== HERO ===== */
+.hero{
+  position:relative;min-height:94vh;display:grid;place-items:center;overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:url("./assets/images/landing-hero.jpg");
+  background-size:cover;background-position:center;
+  filter:saturate(1.05) brightness(.92);
+}
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.2),rgba(0,0,0,.45));
+}
+.hero-inner{position:relative;z-index:2;text-align:center;color:#fff;padding:0 16px}
+.hero h2{margin:.2rem 0 .6rem;font-family:"Playfair Display",serif;font-size:clamp(36px,8vw,72px);text-shadow:0 16px 40px rgba(0,0,0,.55)}
+.hero p{margin:0 0 18px;font-size:clamp(14px,2.4vw,20px);color:#EAF3FF;text-shadow:0 12px 28px rgba(0,0,0,.5)}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{
+  display:inline-block;padding:14px 22px;border-radius:999px;border:0;cursor:pointer;text-decoration:none;
+  color:#fff;font-weight:700;letter-spacing:.2px;box-shadow:0 18px 46px rgba(10,104,184,.35);
+  background:linear-gradient(180deg,#0074d9,#005fb3);
+  transition:transform .15s ease,filter .15s ease;
+}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.05)}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.65);box-shadow:none}
 
-    /* ===== Slide-out nav ===== */
-    .nav{
-      position:fixed; top:0; left:-320px; height:100dvh; width:280px; z-index:80;
-      background:rgba(255,255,255,.94); backdrop-filter: blur(16px);
-      border-right:1px solid rgba(10,104,184,.12);
-      box-shadow:0 12px 40px rgba(0,0,0,.18);
-      padding:14px; display:flex; flex-direction:column; gap:8px;
-      transition:left .28s ease;
-    }
-    .nav a{
-      display:block; padding:12px 10px; border-radius:12px; text-decoration:none;
-      color:#0a2a44; font-weight:600;
-    }
-    .nav a:hover{ background:rgba(10,104,184,.08) }
-    .nav .book{ color:#fff; background:linear-gradient(180deg,var(--coral),#FF6A58) }
-    .nav .close{ align-self:flex-end; width:36px;height:36px; border-radius:10px; border:1px solid rgba(10,104,184,.15); background:#fff; cursor:pointer; font-size:20px }
-    .backdrop{ position:fixed; inset:0; background:rgba(0,0,0,.35); opacity:0; pointer-events:none; transition:opacity .25s ease; z-index:70 }
-    .nav.open{ left:0 } .backdrop.open{ opacity:1; pointer-events:auto }
-
-    /* ===== Hero ===== */
-    .hero{
-      position:relative; min-height: calc(100vh - 68px); /* full screen minus header */
-      display:grid; place-items:center; overflow:hidden;
-    }
-    /* Save your generated banner as /assets/images/landing-hero.jpg */
-    .hero::before{
-      content:""; position:absolute; inset:0;
-      background-image:url('./assets/images/landing-hero.jpg');
-      background-size:cover; background-position:center;
-      transform:scale(1.03); filter:saturate(1.05) contrast(1.02);
-    }
-    .vignette{
-      position:absolute; inset:0;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.40), rgba(0,0,0,.15) 45%, rgba(0,0,0,.45)),
-        radial-gradient(1200px 600px at 20% 10%, rgba(255,255,255,.18), transparent 60%);
-      mix-blend-mode:multiply;
-    }
-    .hero-inner{
-      position:relative; z-index:1; text-align:center; color:#fff; padding:0 16px;
-      text-shadow: 0 16px 40px rgba(0,0,0,.55);
-      animation:fadeUp .7s ease both .1s;
-    }
-    @keyframes fadeUp{from{opacity:0; transform:translateY(8px)}to{opacity:1; transform:translateY(0)}}
-    .kicker{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 12px; border-radius:999px; background:rgba(255,255,255,.18);
-      backdrop-filter: blur(6px); border:1px solid rgba(255,255,255,.25);
-      margin-bottom:14px; font-weight:700; letter-spacing:.25px;
-    }
-    .hero h2{
-      margin:0 0 8px; font-family:"Playfair Display",serif;
-      font-size: clamp(28px, 7vw, 64px);
-    }
-    .subtitle{ margin:0 0 18px; font-size: clamp(14px, 2.6vw, 20px); opacity:.95 }
-
-    .cta-row{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap }
-    .btn{
-      display:inline-block; padding:12px 18px; border-radius:999px; text-decoration:none;
-      box-shadow:var(--shadow); transform:translateZ(0);
-      transition: transform .2s ease, filter .2s ease;
-      color:#fff;
-    }
-    .btn.primary{ background:linear-gradient(180deg,var(--aegean),var(--aegean-dark)) }
-    .btn.ghost{ background:transparent; border:1px solid rgba(255,255,255,.65); color:#fff }
-    .btn:hover{ transform:translateY(-2px); filter:brightness(1.02) }
-
-    /* Footer */
-    footer{ text-align:center; color:#6c7a89; padding:28px 16px }
-
-    /* Mobile layout */
-    @media (max-width:720px){
-      .hdr{ grid-template-columns:46px 1fr 46px }
-    }
-  </style>
+/* Footer */
+footer{text-align:center;color:#ddd;padding:26px 16px;border-top:1px solid rgba(255,255,255,.1);background:var(--aegean)}
+</style>
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
-  <header class="hdr">
-    <!-- Left: Animated Logo (opens nav) -->
-    <button id="logoBtn" class="logo-btn" aria-label="Open menu" title="Menu">
-      <svg class="logo-svg" viewBox="0 0 120 120" aria-hidden="true">
-        <defs>
-          <radialGradient id="domeBlue" cx="50%" cy="30%" r="70%">
-            <stop offset="0%" stop-color="#7FC3F7"/><stop offset="100%" stop-color="#0A68B8"/>
-          </radialGradient>
-        </defs>
-        <circle cx="60" cy="60" r="56" fill="#F2F4F7"/>
-        <path d="M12,60 a48,48 0 1,1 96,0" fill="url(#domeBlue)"/>
-        <path d="M12,60 h96 a48,48 0 0,1 -96,0z" fill="#ffffff"/>
-        <path d="M72,88 h-24 v-30 a12,12 0 1,1 24,0z" fill="#0A68B8"/>
-        <path d="M74,88 h-28 v-30 a14,14 0 1,1 28,0z" fill="#ffffff" opacity=".9"/>
-        <path d="M60,88 h12 l-6,6 h-12z" fill="#EDEFF3"/>
-      </svg>
-    </button>
+<header class="frs-header">
+  <button id="logoBtn" class="frs-logo-btn" aria-label="Menu">
+    <svg class="frs-logo" viewBox="0 0 120 120"><defs><radialGradient id="domeBlue" cx="50%" cy="30%" r="70%"><stop offset="0%" stop-color="#7FC3F7"/><stop offset="100%" stop-color="#0A68B8"/></radialGradient></defs><circle cx="60" cy="60" r="56" fill="#F2F4F7"/><path d="M12,60 a48,48 0 1,1 96,0" fill="url(#domeBlue)"/><path d="M12,60 h96 a48,48 0 0,1 -96,0z" fill="#ffffff"/><path d="M72,88 h-24 v-30 a12,12 0 1,1 24,0z" fill="#0A68B8"/><path d="M74,88 h-28 v-30 a14,14 0 1,1 28,0z" fill="#ffffff" opacity=".9"/><path d="M60,88 h12 l-6,6 h-12z" fill="#EDEFF3"/></svg>
+  </button>
 
-    <!-- Middle: Title -->
-    <div class="title"><h1>Fantasy Retreat Spa</h1></div>
+  <div class="frs-title"><h1>Fantasy Retreat Spa</h1></div>
 
-    <!-- Right: Telegram-style Share -->
-    <button id="shareBtn" class="share" aria-label="Share this page" title="Share">
-      <svg class="tg" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M22 2L2.7 9.1c-.8.3-.8 1.4 0 1.7l5.1 1.8 2 6.2c.2.7 1.1.9 1.6.4l3.1-3 5.3 3.9c.6.4 1.4.1 1.6-.6L23.9 3.1c.2-.9-.7-1.7-1.9-1.1zM8.6 13.3l9.7-6.1-7.7 7.4-.6 3.1-1.4-4.4z"/>
-      </svg>
-      <span class="ping" aria-hidden="true"></span>
-    </button>
+  <button id="shareBtn" class="frs-share" aria-label="Share">
+    <svg class="frs-telegram" viewBox="0 0 24 24"><path d="M22 2L2.7 9.1c-.8.3-.8 1.4 0 1.7l5.1 1.8 2 6.2c.2.7 1.1.9 1.6.4l3.1-3 5.3 3.9c.6.4 1.4.1 1.6-.6L23.9 3.1c.2-.9-.7-1.7-1.9-1.1zM8.6 13.3l9.7-6.1-7.7 7.4-.6 3.1-1.4-4.4z"/></svg>
+  </button>
 
-    <!-- Slide-out Navigation -->
-    <nav id="siteNav" class="nav" aria-label="Main">
-      <button class="close" id="closeNav" aria-label="Close menu">×</button>
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#packages">Packages</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
-      <a class="book" href="#book">Book Now</a>
-    </nav>
-    <div id="backdrop" class="backdrop" aria-hidden="true"></div>
-  </header>
+  <nav id="frsNav" class="frs-nav">
+    <button id="closeNav" class="frs-close">×</button>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#packages">Packages</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+    <a href="#book" class="frs-book">Book Now</a>
+  </nav>
+  <div id="frsBackdrop" class="frs-backdrop"></div>
+</header>
 
-  <!-- ===== HERO ===== -->
-  <main id="home" class="hero" role="main" aria-label="Exotic Beach Massage Therapy">
-    <!-- Background image is applied via CSS ::before -->
-    <div class="vignette" aria-hidden="true"></div>
-
-    <div class="hero-inner">
-      <span class="kicker">Exotic Beach Massage Therapy</span>
-      <h2>Relax under Grecian skies as our therapists restore balance by the Aegean.</h2>
-      <p class="subtitle">Premium on-beach treatments • Couples & Singles • Sunset sessions available</p>
-
-      <div class="cta-row">
-        <a class="btn primary" href="#book">Begin Your Escape</a>
-        <a class="btn ghost" href="#gallery">View Gallery</a>
-      </div>
+<section id="home" class="hero">
+  <div class="hero-inner">
+    <h2>Exotic Beach&nbsp;Massage Therapy</h2>
+    <p>Relax under Grecian skies as our therapists restore balance by the Aegean.</p>
+    <div class="cta-row">
+      <a href="#book" class="btn">Begin Your Escape</a>
+      <a href="#gallery" class="btn ghost">View Gallery</a>
     </div>
-  </main>
+  </div>
+</section>
 
-  <footer>
-    © <span id="year"></span> Fantasy Retreat Spa • Designed by
-    <a href="https://virtualwarecloud.github.io/" target="_blank" rel="noopener">VirtualWareCloud</a>
-  </footer>
+<footer>
+  © <span id="year"></span> Fantasy Retreat Spa • Designed by <a href="https://virtualwarecloud.github.io/" style="color:#fff;text-decoration:none" target="_blank">VirtualWareCloud</a>
+</footer>
 
-  <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Slide-out nav controls
-    const logoBtn = document.getElementById('logoBtn');
-    const siteNav = document.getElementById('siteNav');
-    const closeNav = document.getElementById('closeNav');
-    const backdrop = document.getElementById('backdrop');
-
-    function openNav(){ siteNav.classList.add('open'); backdrop.classList.add('open'); }
-    function closeNavFn(){ siteNav.classList.remove('open'); backdrop.classList.remove('open'); }
-
-    logoBtn.addEventListener('click', openNav);
-    closeNav.addEventListener('click', closeNavFn);
-    backdrop.addEventListener('click', closeNavFn);
-    window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeNavFn(); });
-
-    // Share (Telegram-style)
-    document.getElementById('shareBtn').addEventListener('click', async () => {
-      const data = { title:'Fantasy Retreat Spa', text:'Exotic Beach Massage Therapy', url: window.location.href };
-      try{
-        if(navigator.share){ await navigator.share(data); }
-        else{
-          await navigator.clipboard.writeText(data.url);
-          const tg = `https://t.me/share/url?url=${encodeURIComponent(data.url)}&text=${encodeURIComponent(data.text)}`;
-          window.open(tg, '_blank');
-        }
-      }catch(err){ console.warn('Share cancelled/unsupported', err); }
-    });
-  </script>
+<script>
+const logoBtn=document.getElementById('logoBtn'),
+frsNav=document.getElementById('frsNav'),
+frsBackdrop=document.getElementById('frsBackdrop'),
+closeNav=document.getElementById('closeNav');
+function openNav(){frsNav.classList.add('is-open');frsBackdrop.classList.add('is-open');}
+function closeNavFn(){frsNav.classList.remove('is-open');frsBackdrop.classList.remove('is-open');}
+logoBtn?.addEventListener('click',openNav);
+closeNav?.addEventListener('click',closeNavFn);
+frsBackdrop?.addEventListener('click',closeNavFn);
+window.addEventListener('keydown',e=>{if(e.key==='Escape')closeNavFn();});
+document.getElementById('shareBtn')?.addEventListener('click',async()=>{
+const data={title:'Fantasy Retreat Spa',text:'Where Luxury Meets Serenity.',url:window.location.href};
+try{if(navigator.share){await navigator.share(data);}else{await navigator.clipboard.writeText(data.url);
+const tg=`https://t.me/share/url?url=${encodeURIComponent(data.url)}&text=${encodeURIComponent(data.text)}`;
+window.open(tg,'_blank');}}catch(e){console.warn('Share cancelled/unsupported',e);}});
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
 </body>
 </html>
