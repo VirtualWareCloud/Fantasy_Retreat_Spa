@@ -28,31 +28,27 @@ body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#f8
   box-shadow:0 2px 12px rgba(0,0,0,.2);
 }
 
-/* Left logo */
+/* Left logo button (transparent background) */
 .frs-logo-btn{
   width:46px;height:46px;display:grid;place-items:center;
-  border:1px solid var(--border);border-radius:14px;
-  background:linear-gradient(180deg,rgba(255,255,255,.15),rgba(255,255,255,.05));
-  cursor:pointer;transition:transform .2s ease;
+  background:transparent;border:none;cursor:pointer;transition:transform .2s ease;
 }
 .frs-logo-btn:hover{transform:translateY(-1px)}
 .frs-logo{width:28px;height:28px;display:block;filter:drop-shadow(0 4px 8px rgba(255,255,255,.4))}
 @keyframes frsFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
 .frs-logo{animation:frsFloat 3.6s ease-in-out infinite}
 
-/* Middle title */
+/* Title */
 .frs-title{text-align:center;color:var(--white)}
 .frs-title h1{margin:0;font-family:"Playfair Display",serif;font-size:clamp(18px,3.6vw,28px);letter-spacing:.3px;color:var(--white)}
 
-/* Right share button */
+/* Right share button (transparent background) */
 .frs-share{
-  position:relative;width:46px;height:46px;display:grid;place-items:center;
-  border:1px solid var(--border);border-radius:14px;
-  background:linear-gradient(180deg,rgba(255,255,255,.15),rgba(255,255,255,.05));
-  cursor:pointer;transition:transform .2s ease;
+  width:46px;height:46px;display:grid;place-items:center;
+  background:transparent;border:none;cursor:pointer;transition:transform .2s ease;
 }
 .frs-share:hover{transform:translateY(-1px) rotate(-2deg)}
-.frs-telegram{width:22px;height:22px;fill:var(--white);animation:frsPlane 2.8s ease-in-out infinite}
+.frs-telegram{width:24px;height:24px;fill:var(--white);animation:frsPlane 2.8s ease-in-out infinite}
 @keyframes frsPlane{0%{transform:translate(0,0)}50%{transform:translate(1px,-2px)}100%{transform:translate(0,0)}}
 
 /* NAV */
@@ -66,7 +62,7 @@ body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#f8
 .frs-nav a{display:block;padding:12px 10px;border-radius:12px;text-decoration:none;color:var(--white);font-weight:600}
 .frs-nav a:hover{background:rgba(255,255,255,.15)}
 .frs-book{background:var(--coral);color:#fff!important}
-.frs-close{align-self:flex-end;width:36px;height:36px;border-radius:10px;border:1px solid var(--border);background:rgba(255,255,255,.1);cursor:pointer;font-size:20px;color:var(--white)}
+.frs-close{align-self:flex-end;width:36px;height:36px;border-radius:10px;border:1px solid var(--border);background:transparent;cursor:pointer;font-size:20px;color:var(--white)}
 .frs-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:85}
 .frs-nav.is-open{left:0}.frs-backdrop.is-open{opacity:1;pointer-events:auto}
 
@@ -104,12 +100,17 @@ footer{text-align:center;color:#ddd;padding:26px 16px;border-top:1px solid rgba(
 <body>
 
 <header class="frs-header">
+  <!-- Left: Animated logo -->
   <button id="logoBtn" class="frs-logo-btn" aria-label="Menu">
-    <svg class="frs-logo" viewBox="0 0 120 120"><defs><radialGradient id="domeBlue" cx="50%" cy="30%" r="70%"><stop offset="0%" stop-color="#7FC3F7"/><stop offset="100%" stop-color="#0A68B8"/></radialGradient></defs><circle cx="60" cy="60" r="56" fill="#F2F4F7"/><path d="M12,60 a48,48 0 1,1 96,0" fill="url(#domeBlue)"/><path d="M12,60 h96 a48,48 0 0,1 -96,0z" fill="#ffffff"/><path d="M72,88 h-24 v-30 a12,12 0 1,1 24,0z" fill="#0A68B8"/><path d="M74,88 h-28 v-30 a14,14 0 1,1 28,0z" fill="#ffffff" opacity=".9"/><path d="M60,88 h12 l-6,6 h-12z" fill="#EDEFF3"/></svg>
+    <svg class="frs-logo" viewBox="0 0 120 120">
+      <defs><radialGradient id="domeBlue" cx="50%" cy="30%" r="70%"><stop offset="0%" stop-color="#7FC3F7"/><stop offset="100%" stop-color="#0A68B8"/></radialGradient></defs>
+      <circle cx="60" cy="60" r="56" fill="#F2F4F7"/><path d="M12,60 a48,48 0 1,1 96,0" fill="url(#domeBlue)"/><path d="M12,60 h96 a48,48 0 0,1 -96,0z" fill="#ffffff"/><path d="M72,88 h-24 v-30 a12,12 0 1,1 24,0z" fill="#0A68B8"/><path d="M74,88 h-28 v-30 a14,14 0 1,1 28,0z" fill="#ffffff" opacity=".9"/><path d="M60,88 h12 l-6,6 h-12z" fill="#EDEFF3"/>
+    </svg>
   </button>
 
   <div class="frs-title"><h1>Fantasy Retreat Spa</h1></div>
 
+  <!-- Right: Share -->
   <button id="shareBtn" class="frs-share" aria-label="Share">
     <svg class="frs-telegram" viewBox="0 0 24 24"><path d="M22 2L2.7 9.1c-.8.3-.8 1.4 0 1.7l5.1 1.8 2 6.2c.2.7 1.1.9 1.6.4l3.1-3 5.3 3.9c.6.4 1.4.1 1.6-.6L23.9 3.1c.2-.9-.7-1.7-1.9-1.1zM8.6 13.3l9.7-6.1-7.7 7.4-.6 3.1-1.4-4.4z"/></svg>
   </button>
@@ -138,7 +139,8 @@ footer{text-align:center;color:#ddd;padding:26px 16px;border-top:1px solid rgba(
 </section>
 
 <footer>
-  © <span id="year"></span> Fantasy Retreat Spa • Designed by <a href="https://virtualwarecloud.github.io/" style="color:#fff;text-decoration:none" target="_blank">VirtualWareCloud</a>
+  © <span id="year"></span> Fantasy Retreat Spa • Designed by 
+  <a href="https://virtualwarecloud.github.io/" style="color:#fff;text-decoration:none" target="_blank">VirtualWareCloud</a>
 </footer>
 
 <script>
