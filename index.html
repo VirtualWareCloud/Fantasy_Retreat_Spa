@@ -1,276 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Ecstasy Retreat - Mobile Massage Therapists</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ecstasy Retreat</title>
 
-    body, html {
-      font-family: 'Segoe UI', sans-serif;
-      height: 100%;
-      overflow-x: hidden;
-    }
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
 
-    header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      z-index: 1000;
-    }
+  body {
+    margin: 0;
+    padding: 0;
+    background: #05000a;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+  }
 
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: #222;
-      text-align: center;
-      flex-grow: 1;
-    }
+  /* --- HERO SECTION --- */
+  .hero {
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(circle at center, #240018 0%, #05000a 70%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+  }
 
-    .share-button {
-      cursor: pointer;
-      font-size: 20px;
-      color: #333;
-    }
+  .logo {
+    width: 240px;
+    filter: drop-shadow(0 0 18px #ff007f);
+    margin-bottom: 20px;
+    animation: glow 3s ease-in-out infinite alternate;
+  }
 
-    .hamburger {
-      font-size: 24px;
-      cursor: pointer;
-    }
+  @keyframes glow {
+    from { filter: drop-shadow(0 0 12px #ff006a); }
+    to   { filter: drop-shadow(0 0 30px #ff1aa3); }
+  }
 
-    nav {
-      position: absolute;
-      top: 60px;
-      width: 100%;
-      background: white;
-      display: none;
-      flex-direction: column;
-      text-align: center;
-      z-index: 999;
-    }
+  .title {
+    font-size: 55px;
+    letter-spacing: 5px;
+    color: #ff007f;
+    text-shadow: 0 0 25px #ff007f;
+    margin-top: 10px;
+    font-weight: 600;
+  }
 
-    nav a {
-      padding: 15px;
-      text-decoration: none;
-      color: #333;
-      border-top: 1px solid #eee;
-    }
+  .subtitle {
+    color: #ff9ccc;
+    font-size: 20px;
+    margin-top: -10px;
+    text-shadow: 0 0 12px #ff007f;
+  }
 
-    nav.active {
-      display: flex;
-    }
+  .cta-btn {
+    margin-top: 40px;
+    padding: 15px 40px;
+    background: transparent;
+    border: 2px solid #ff007f;
+    color: #ff75c9;
+    font-size: 20px;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 0 15px #ff007f;
+  }
 
-    .hero {
-      position: relative;
-      height: 100vh;
-      width: 100%;
-      overflow: hidden;
-    }
+  .cta-btn:hover {
+    background: #ff007f;
+    color: #fff;
+    box-shadow: 0 0 30px #ff007f;
+    transform: scale(1.05);
+  }
 
-    .slide {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-
-    .slide.active {
-      opacity: 1;
-    }
-
-    .hero-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      text-align: center;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.7);
-    }
-
-    .hero-text h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-
-    .hero-text p {
-      font-size: 20px;
-      margin-bottom: 20px;
-    }
-
-    .hero-text a {
-      background: #fff;
-      color: #333;
-      padding: 10px 20px;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 5px;
-    }
-
-    .floating-buttons {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 1000;
-    }
-
-    .floating-buttons a {
-      background: #25D366;
-      color: white;
-      font-size: 20px;
-      padding: 10px 12px;
-      border-radius: 50%;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    }
-
-    .floating-buttons a.email {
-      background: #007BFF;
-    }
-
-    footer {
-      background: #222;
-      color: #fff;
-      padding: 30px 10px 10px;
-      text-align: center;
-    }
-
-    .social-icons a {
-      color: white;
-      margin: 0 8px;
-      font-size: 20px;
-      transition: color 0.3s ease;
-    }
-
-    .social-icons a:hover {
-      color: #FFD700;
-    }
-
-    .credit {
-      margin-top: 10px;
-      font-size: 14px;
-    }
-
-    .credit a {
-      color: #aaa;
-      text-decoration: none;
-    }
-
-    @media (max-width: 768px) {
-      .hero-text h1 {
-        font-size: 28px;
-      }
-
-      .hero-text p {
-        font-size: 16px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <div class="share-button" onclick="shareWebsite()"><i class="fas fa-share-alt"></i></div>
-    <div class="logo">Ecstasy Retreat</div>
-    <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
-  </header>
-
-  <nav id="mobileMenu">
-    <a href="index.html">Home</a>
-    <a href="booking.html">Booking</a>
-    <a href="image-gallery.html">Gallery</a>
-    <a href="therapists.html">Therapists</a>
-    <a href="join-therapist.html">Join as Therapist</a>
-  </nav>
-
-  <div class="hero">
-    <div class="slide active" style="background-image: url('https://via.placeholder.com/1600x900?text=Slide+1');"></div>
-    <div class="slide" style="background-image: url('https://via.placeholder.com/1600x900?text=Slide+2');"></div>
-    <div class="slide" style="background-image: url('https://via.placeholder.com/1600x900?text=Slide+3');"></div>
-
-    <div class="hero-text">
-      <h1>Premium Mobile Massage</h1>
-      <p>Relax, Rejuvenate, and Recharge</p>
-      <a href="booking.html">Book Now</a>
-    </div>
-  </div>
-
-  <div class="floating-buttons">
-    <a href="mailto:someone@example.com" class="email"><i class="fas fa-envelope"></i></a>
-    <a href="https://wa.me/1234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
-  </div>
-
-  <footer>
-    <div class="social-icons">
-      <a href="mailto:someone@example.com"><i class="fas fa-envelope"></i></a>
-      <a href="https://wa.me/1234567890"><i class="fab fa-whatsapp"></i></a>
-      <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
-      <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.tiktok.com"><i class="fab fa-tiktok"></i></a>
-      <a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a>
-    </div>
-    <div class="credit">
-      <a href="https://virtualwarecloud.github.io/services/" target="_blank">
-        <i class="fas fa-paper-plane"></i> Designed by VirtualWareCloud
-      </a>
-    </div>
-  </footer>
-
-  <script>
-    // Hamburger menu toggle
-    function toggleMenu() {
-      document.getElementById("mobileMenu").classList.toggle("active");
-    }
-
-    // Native share button
-    async function shareWebsite() {
-      if (navigator.share) {
-        await navigator.share({
-          title: 'Ecstasy Retreat',
-          text: 'Relax with premium mobile massage services',
-          url: window.location.href
-        });
-      } else {
-        alert("Sharing not supported on this device.");
-      }
-    }
-
-    // Slideshow functionality
-    let currentSlide = 0;
-    const slides = document.querySelectorAll(".slide");
-
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle("active", i === index);
-      });
-    }
-
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide);
-    }
-
-    setInterval(nextSlide, 5000); // Auto slide every 5 seconds
-  </script>
-
-</body>
-</html>
+  /* FLOAT
